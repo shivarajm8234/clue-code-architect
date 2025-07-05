@@ -71,17 +71,18 @@ const ProjectsSection = () => {
         </p>
       </div>
 
-      <div className="space-y-12">
+      {/* Horizontal Scrolling Projects */}
+      <div className="flex gap-8 overflow-x-auto pb-6 scrollbar-hide">
         {projects.map((project, index) => (
-          <div key={project.id} className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-            {/* Project Image */}
-            <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-              <div className="relative group">
+          <div key={project.id} className="min-w-[400px] md:min-w-[500px] flex-shrink-0">
+            <div className="case-file p-6 rounded-lg h-full">
+              {/* Project Image */}
+              <div className="relative group mb-6">
                 <div className="glow-border rounded-lg overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="absolute top-4 left-4">
@@ -96,22 +97,20 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Project Details */}
-            <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-              <div className="case-file p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-4 font-mono">{project.title}</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+              {/* Project Details */}
+              <div>
+                <h3 className="text-xl font-bold mb-3 font-mono">{project.title}</h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Tech Stack */}
-                <div className="mb-6">
-                  <h4 className="font-mono text-accent mb-2">Investigation Tools:</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="mb-4">
+                  <h4 className="font-mono text-accent mb-2 text-sm">Investigation Tools:</h4>
+                  <div className="flex flex-wrap gap-1">
                     {project.tech.map((tech) => (
-                      <span key={tech} className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-mono">
+                      <span key={tech} className="bg-accent/10 text-accent px-2 py-1 rounded-full text-xs font-mono">
                         {tech}
                       </span>
                     ))}
@@ -119,9 +118,9 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Key Features */}
-                <div className="mb-6">
-                  <h4 className="font-mono text-accent mb-2">Key Evidence:</h4>
-                  <ul className="grid grid-cols-2 gap-2 text-sm">
+                <div className="mb-4">
+                  <h4 className="font-mono text-accent mb-2 text-sm">Key Evidence:</h4>
+                  <ul className="text-xs space-y-1">
                     {project.features.map((feature) => (
                       <li key={feature} className="text-muted-foreground">
                         • {feature}
@@ -131,13 +130,13 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-4">
-                  <button className="glow-border px-4 py-2 rounded-lg font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300 flex items-center space-x-2">
-                    <ExternalLink className="w-4 h-4" />
+                <div className="flex space-x-2">
+                  <button className="glow-border px-3 py-2 rounded-lg font-mono text-xs hover:bg-accent hover:text-accent-foreground transition-all duration-300 flex items-center space-x-2">
+                    <ExternalLink className="w-3 h-3" />
                     <span>View Case</span>
                   </button>
-                  <button className="detective-card px-4 py-2 rounded-lg font-mono text-sm flex items-center space-x-2">
-                    <Github className="w-4 h-4" />
+                  <button className="detective-card px-3 py-2 rounded-lg font-mono text-xs flex items-center space-x-2">
+                    <Github className="w-3 h-3" />
                     <span>Evidence</span>
                   </button>
                 </div>
