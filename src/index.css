@@ -182,15 +182,6 @@
     border: 10px solid transparent;
     border-top-color: hsl(var(--accent));
   }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @keyframes glitch {
