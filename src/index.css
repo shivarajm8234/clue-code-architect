@@ -2,39 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* L-inspired Design System - Dark, mysterious, cerebral */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* L's Dark Palette */
+    --background: 220 13% 6%;
+    --foreground: 210 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 8%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 8%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep midnight blue primary */
+    --primary: 220 91% 15%;
+    --primary-foreground: 210 20% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Subtle gray secondary */
+    --secondary: 220 13% 12%;
+    --secondary-foreground: 210 20% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 10%;
+    --muted-foreground: 215 16% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Glowing accent */
+    --accent: 200 100% 50%;
+    --accent-foreground: 220 13% 6%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 15%;
+    --input: 220 13% 12%;
+    --ring: 200 100% 50%;
 
     --radius: 0.5rem;
 
@@ -94,12 +96,134 @@ All colors MUST be HSL.
   }
 }
 
+/* L-inspired Effects & Animations */
+@layer components {
+  .glitch-text {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+  }
+  
+  .glitch-text::before {
+    color: hsl(var(--accent));
+    animation: glitch-1 0.3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  
+  .glitch-text::after {
+    color: hsl(var(--destructive));
+    animation: glitch-2 0.3s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+
+  .glow-border {
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glow-border:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.5);
+    border-color: hsl(var(--accent) / 0.8);
+  }
+
+  .detective-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .detective-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px hsl(var(--accent) / 0.2);
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--accent));
+    white-space: nowrap;
+    animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  .case-file {
+    background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--muted)));
+    border-left: 4px solid hsl(var(--accent));
+    transition: all 0.3s ease;
+  }
+
+  .case-file:hover {
+    border-left-color: hsl(var(--primary));
+    transform: translateX(4px);
+  }
+
+  .speech-bubble {
+    position: relative;
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--accent));
+    border-radius: 15px;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: hsl(var(--accent));
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: hsl(var(--accent)); }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
   }
 }
