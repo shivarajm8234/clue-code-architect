@@ -26,55 +26,47 @@ const SkillsSection = () => {
         <span className="text-accent">02.</span> Investigation Toolkit
       </h2>
 
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Skills Progress */}
-        <div>
-          <h3 className="text-2xl font-mono mb-8 text-accent">Core Technologies</h3>
-          <div className="space-y-4">
-            {skills.map((skill, index) => (
-              <div key={skill.name} className="detective-card p-4 rounded-lg">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono font-semibold">{skill.name}</span>
-                  <span className="text-accent font-mono">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div 
-                    className={`h-2 rounded-full ${skill.color} transition-all duration-1000 ease-out`}
-                    style={{ 
-                      width: `${skill.level}%`,
-                      animationDelay: `${index * 100}ms`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Skill Badges */}
-        <div>
-          <h3 className="text-2xl font-mono mb-8 text-accent">Specializations</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {badges.map((badge, index) => (
+      {/* Compact Skills Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        {skills.map((skill, index) => (
+          <div key={skill.name} className="detective-card p-3 rounded-lg text-center group">
+            <div className="font-mono font-semibold text-sm mb-2">{skill.name}</div>
+            <div className="text-accent font-mono text-xs">{skill.level}%</div>
+            <div className="w-full bg-muted rounded-full h-1.5 mt-2">
               <div 
-                key={badge}
-                className="detective-card p-4 rounded-lg text-center hover:scale-105 transition-transform duration-300"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <span className="font-mono font-semibold text-sm">{badge}</span>
-              </div>
-            ))}
+                className={`h-1.5 rounded-full ${skill.color} transition-all duration-1000 ease-out`}
+                style={{ 
+                  width: `${skill.level}%`,
+                  animationDelay: `${index * 50}ms`
+                }}
+              ></div>
+            </div>
           </div>
+        ))}
+      </div>
 
-          <div className="mt-8 p-6 case-file rounded-lg">
-            <h4 className="font-mono font-bold mb-4 text-accent">Detective's Note:</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              "Each technology is a tool in my investigative arsenal. Like L's deductive reasoning, 
-              I combine these elements to create intelligent solutions that think several steps ahead. 
-              The key isn't just knowing the tools—it's knowing when and how to use them together."
-            </p>
-          </div>
+      {/* Specializations */}
+      <div className="mb-8">
+        <h3 className="text-xl font-mono mb-4 text-accent text-center">Specializations</h3>
+        <div className="flex flex-wrap justify-center gap-2">
+          {badges.map((badge, index) => (
+            <span 
+              key={badge}
+              className="detective-card px-3 py-1 rounded-full text-xs font-mono hover:scale-105 transition-transform duration-300"
+              style={{ animationDelay: `${index * 30}ms` }}
+            >
+              {badge}
+            </span>
+          ))}
         </div>
+      </div>
+
+      <div className="p-4 case-file rounded-lg max-w-3xl mx-auto">
+        <h4 className="font-mono font-bold mb-2 text-accent text-center">Detective's Note:</h4>
+        <p className="text-muted-foreground text-sm text-center leading-relaxed">
+          "Each technology is a tool in my investigative arsenal. Like L's deductive reasoning, 
+          I combine these elements to create intelligent solutions that think several steps ahead."
+        </p>
       </div>
     </section>
   );

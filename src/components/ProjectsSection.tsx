@@ -61,7 +61,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 max-w-7xl mx-auto">
+    <section className="py-20 px-4 max-w-7xl mx-auto" id="projects">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4 font-mono">
           <span className="text-accent">03.</span> Case Files
@@ -132,11 +132,17 @@ const ProjectsSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex space-x-4">
-                  <button className="glow-border px-4 py-2 rounded-lg font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300 flex items-center space-x-2">
+                  <button 
+                    onClick={() => window.open('#', '_blank')}
+                    className="glow-border px-4 py-2 rounded-lg font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300 flex items-center space-x-2"
+                  >
                     <ExternalLink className="w-4 h-4" />
                     <span>View Case</span>
                   </button>
-                  <button className="detective-card px-4 py-2 rounded-lg font-mono text-sm flex items-center space-x-2">
+                  <button 
+                    onClick={() => window.open('https://github.com', '_blank')}
+                    className="detective-card px-4 py-2 rounded-lg font-mono text-sm flex items-center space-x-2"
+                  >
                     <Github className="w-4 h-4" />
                     <span>Evidence</span>
                   </button>

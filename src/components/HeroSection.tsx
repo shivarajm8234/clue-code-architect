@@ -69,10 +69,16 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="glow-border px-8 py-3 rounded-lg font-mono hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+          <button 
+            onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+            className="glow-border px-8 py-3 rounded-lg font-mono hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+          >
             View Case Files
           </button>
-          <button className="detective-card px-8 py-3 rounded-lg font-mono">
+          <button 
+            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="detective-card px-8 py-3 rounded-lg font-mono"
+          >
             Drop a Clue
           </button>
         </div>

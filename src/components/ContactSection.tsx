@@ -42,7 +42,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
+    <section className="py-20 px-4 max-w-6xl mx-auto" id="contact">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4 font-mono">
           <span className="text-accent">06.</span> Drop a Clue

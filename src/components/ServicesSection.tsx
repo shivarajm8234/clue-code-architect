@@ -13,7 +13,7 @@ const ServicesSection = () => {
         'Predictive Analytics',
         'AI-Powered Decision Making'
       ],
-      price: 'From $2,500'
+      
     },
     {
       icon: Code,
@@ -25,7 +25,7 @@ const ServicesSection = () => {
         'API Development',
         'Cloud Deployment'
       ],
-      price: 'From $1,800'
+      
     },
     {
       icon: FileText,
@@ -37,7 +37,7 @@ const ServicesSection = () => {
         'Keyword Analysis',
         'Performance Tracking'
       ],
-      price: 'From $150'
+      
     },
     {
       icon: Bug,
@@ -49,7 +49,7 @@ const ServicesSection = () => {
         'Security Assessment',
         'Technical Documentation'
       ],
-      price: 'From $75/hour'
+      
     }
   ];
 
@@ -90,9 +90,11 @@ const ServicesSection = () => {
                   </ul>
                 </div>
 
-                <div className="flex justify-between items-center">
-                  <span className="font-mono text-accent font-bold">{service.price}</span>
-                  <button className="glow-border px-4 py-2 rounded-lg font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300">
+                <div className="text-center">
+                  <button 
+                    onClick={() => window.open('mailto:contact@example.com?subject=' + encodeURIComponent(`Inquiry: ${service.title}`))}
+                    className="glow-border px-6 py-2 rounded-lg font-mono text-sm hover:bg-accent hover:text-accent-foreground transition-all duration-300 w-full"
+                  >
                     Start Investigation
                   </button>
                 </div>
