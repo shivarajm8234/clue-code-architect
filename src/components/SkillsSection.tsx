@@ -21,7 +21,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
+    <section className="py-20 px-4 max-w-6xl mx-auto" id="skills">
       <h2 className="text-4xl font-bold mb-12 text-center font-mono">
         <span className="text-accent">02.</span> Investigation Toolkit
       </h2>

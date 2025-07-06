@@ -4,7 +4,7 @@ import detectiveProfile from '../assets/detective-profile.jpg';
 
 const AboutSection = () => {
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
+    <section className="py-20 px-4 max-w-6xl mx-auto" id="about">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="order-2 md:order-1">
           <h2 className="text-4xl font-bold mb-6 font-mono">
